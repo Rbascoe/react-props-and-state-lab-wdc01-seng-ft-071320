@@ -23,25 +23,25 @@ class App extends React.Component {
     })
   }
 
-onFindPetsClick = () => {
-  this.state.filters.type === 'all'? fetch('/api/pets').then(res => res.json()).then(petArray => this.setState({
-    pets: petArray
-  })) : fetch(`/api/pets?type=${this.state.filters.type}`)
-  .then(res => res.json())
-  .then(petArray => this.setState({
-    pets: petArray
-  }))
-}
+  onFindPetsClick = () => {
+    this.state.filters.type === 'all'? fetch('/api/pets').then(res => res.json()).then(petArray => this.setState({
+      pets: petArray
+    })) : fetch(`/api/pets?type=${this.state.filters.type}`)
+    .then(res => res.json())
+    .then(petArray => this.setState({
+      pets: petArray
+    }))
+  }
 
-onAdoptPet = (petId) => {
-  // debugger
-  this.setState({
-    pets: [...this.state.pets,
-      this.state.pets.find(pets =>
-        pets.id === petId).isAdopted = true]
-  })
+  onAdoptPet = (petId) => {
+    // debugger
+    this.setState({
+      pets: [...this.state.pets,
+        this.state.pets.find(pets =>
+          pets.id === petId).isAdopted = true]
+    })
 
-}
+  }
 
   render() {
     return (
